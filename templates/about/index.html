@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block title %}About Us — Demopolis Coalition{% endblock %}
+{% block description %}Learn about Demopolis Coalition's mission, approach, team, and partners.{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="section-label">About</div>
+      <h1 class="section-title">About Us</h1>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Subtabs -->
+    <nav class="tabs" aria-label="About subtabs">
+      <a href="/about/mission"    class="tabs__link {% if active_tab == 'mission' %}active{% endif %}">Mission &amp; Vision</a>
+      <a href="/about/what-we-do" class="tabs__link {% if active_tab == 'what-we-do' %}active{% endif %}">What We Do &amp; How We Do It</a>
+      <a href="/about/team"       class="tabs__link {% if active_tab == 'team' %}active{% endif %}">Team</a>
+      <a href="/about/partners"   class="tabs__link {% if active_tab == 'partners' %}active{% endif %}">Our Partners</a>
+    </nav>
+
+    <!-- ---- MISSION ---- -->
+    {% if active_tab == 'mission' %}
+    <div class="tab-content" style="max-width:780px;">
+      <h2 class="section-title" style="font-size:1.75rem; margin-bottom:1rem;">Our Mission</h2>
+      <p class="section-body" style="margin-bottom:2rem;">
+        Demopolis aims to foster and encourage Americans' active participation in local governance and government. We aim to reinvigorate local political and civic life, help people build and thrive in their local communities, and combat narratives of harmful local division to ensure the long-term welfare of Americans and their communities.
+      </p>
+
+      <div style="background:var(--color-warm-white); border-left:3px solid var(--color-gold); padding:1.75rem 2rem; margin-bottom:2rem;">
+        <div class="section-label">Our Long-Term Vision</div>
+        <p style="font-family:var(--font-display); font-size:1.25rem; font-style:italic; color:var(--color-navy); line-height:1.5;">
+          "We hope to build a community of partners and members across the non-profit, private, and governmental sectors that support our goals and each other."
+        </p>
+      </div>
+
+      <p class="section-body">
+        We are building a movement for sustained, collaborative, and comprehensive civic participation — one that transcends political lines and unites Americans around their shared investment in local community life.
+      </p>
+    </div>
+
+    <!-- ---- WHAT WE DO ---- -->
+    {% elif active_tab == 'what-we-do' %}
+    <div class="tab-content">
+      <div style="max-width:780px; margin-bottom:3rem;">
+        <h2 class="section-title" style="font-size:1.5rem; margin-bottom:0.75rem;">What We Do and Believe</h2>
+        <p class="section-body">
+          We are a non-partisan organization founded with the hope of engaging all Americans in local politics and civic affairs.
+        </p>
+      </div>
+
+      <h2 class="section-title" style="font-size:1.375rem; margin-bottom:1.5rem;">Our Priorities</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:1.5rem; margin-bottom:3rem;">
+        {% set priorities = [
+          ("Youth Engagement", "A priority focus of our organization is engaging young people in local politics and civic organizations through direct participation — especially in overlooked parts of America."),
+          ("Community Creation", "We create spaces in communities where citizens can gather to discuss civic issues and engage in local political and civic actions in their neighborhood."),
+          ("Supporting Local Institutions", "We assist local governments and civic organizations in ways that strengthen underfunded and understaffed local political institutions, bringing governments closer to the people."),
+          ("Community Safety Nets", "We encourage all Americans to directly participate in local political institutions and grow community organizations and charitable institutions."),
+          ("Community Stakeholders", "We understand that when people have a meaningful stake in their community, they live more productive lives. We work with partners to make everyone a meaningful civic stakeholder."),
+          ("Generational Impact", "A core tenet of our organization is to advocate for future generations — committing to helping every American community begin the work of active civic and political life today.")
+        ] %}
+        {% for title, desc in priorities %}
+        <div style="background:var(--color-warm-white); border-top:3px solid var(--color-gold); padding:1.5rem;">
+          <div style="font-family:var(--font-body); font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-gold); margin-bottom:0.5rem;">{{ title }}</div>
+          <p style="font-size:0.9rem; color:var(--color-muted); line-height:1.65;">{{ desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <h2 class="section-title" style="font-size:1.375rem; margin-bottom:1.25rem;">What We Offer</h2>
+      <div style="display:flex; flex-direction:column; gap:1.25rem; max-width:780px; margin-bottom:3rem;">
+        <div style="padding:1.5rem; border:1px solid var(--color-border);">
+          <div style="font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">For Colleges &amp; Universities</div>
+          <p style="font-size:0.9375rem; color:var(--color-muted); line-height:1.65;">We offer a Chapters Program that any interested student can set up and join.</p>
+        </div>
+        <div style="padding:1.5rem; border:1px solid var(--color-border);">
+          <div style="font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">For Local Non-profits &amp; Government Institutions</div>
+          <p style="font-size:0.9375rem; color:var(--color-muted); line-height:1.65;">We offer locality-specific insights, actionable recommendations, a group of enthusiastic members who can intern and partner with your institutions, and tailored services to help your organizations better serve your local community.</p>
+        </div>
+        <div style="padding:1.5rem; border:1px solid var(--color-border);">
+          <div style="font-weight:700; color:var(--color-navy); margin-bottom:0.5rem;">For the Public at Large</div>
+          <p style="font-size:0.9375rem; color:var(--color-muted); line-height:1.65;">We offer specific information and resources on your local cities and towns to help you know your civic and political institutions and processes better.</p>
+        </div>
+      </div>
+
+      <div style="max-width:780px;">
+        <h2 class="section-title" style="font-size:1.375rem; margin-bottom:1rem;">Our Approach</h2>
+        <p class="section-body" style="margin-bottom:1.5rem;">We emphasize the importance of listening to community members and stakeholders everywhere we go across America. By listening to stakeholders, we best understand how to partner with them to enable more direct and fruitful participation in civic and political life.</p>
+
+        <div style="background:var(--color-warm-white); padding:1.75rem 2rem; border-left:3px solid var(--color-gold);">
+          <div class="section-label">Questions That Drive Our Work</div>
+          <ul style="list-style:disc; padding-left:1.25rem; color:var(--color-muted); font-size:0.9375rem; line-height:2;">
+            <li>Why do people not get involved in civic affairs or local politics?</li>
+            <li>How can we encourage people to participate more fully in their community?</li>
+            <li>How can we encourage people to read to their children and teach them about politics?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- TEAM ---- -->
+    {% elif active_tab == 'team' %}
+    <div class="tab-content">
+      <p class="section-body" style="margin-bottom:0.5rem;">Meet the leadership driving Demopolis Coalition's programs and research.</p>
+      <div class="team-grid">
+        {% for member in team_members %}
+        <div class="team-card">
+          <div class="team-card__name">{{ member.name }}</div>
+          <div class="team-card__title">{{ member.title }}</div>
+          <div class="team-card__dept">{{ member.department }}</div>
+          <p class="team-card__bio">{{ member.bio }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <p style="color:var(--color-muted); font-size:0.875rem; margin-top:2rem; font-style:italic;">Full team profiles coming soon.</p>
+    </div>
+
+    <!-- ---- PARTNERS ---- -->
+    {% elif active_tab == 'partners' %}
+    <div class="tab-content">
+      <p class="section-body" style="margin-bottom:0.5rem;">We are proud to work with leading academic and research institutions committed to civic engagement.</p>
+      <div class="partners-grid">
+        {% for partner in partners %}
+        <div class="partner-card">
+          <div class="partner-card__type">{{ partner.type }}</div>
+          <h3 class="partner-card__name">{{ partner.name }}</h3>
+          <p class="partner-card__desc">{{ partner.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div style="margin-top:2.5rem; padding:2rem; background:var(--color-warm-white); border-top:3px solid var(--color-gold); max-width:600px;">
+        <div class="section-label">Interested in Partnering?</div>
+        <p style="font-size:0.9375rem; color:var(--color-muted); margin-bottom:1rem; line-height:1.65;">We welcome partnerships with non-profit organizations, local government institutions, universities, and private sector partners who share our commitment to civic engagement.</p>
+        <a href="/contact" class="btn btn-gold">Contact Us</a>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

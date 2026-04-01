@@ -1,0 +1,45 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <span class="nav__logo-text" style="font-family: var(--font-display); font-size:1.25rem; color:#fff; display:block; margin-bottom:1rem;">Demopolis Coalition</span>
+        <p>Fostering active participation in local governance and government across America.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" aria-label="Twitter / X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer__links">
+        <div class="footer__links-title">Navigate</div>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/research">Research Program</a></li>
+          <li><a href="/chapters">Chapters Program</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer__newsletter">
+        <div class="footer__newsletter-title">Stay Informed</div>
+        <p style="font-size:0.875rem; color:rgba(255,255,255,0.55); margin-bottom:0.875rem; line-height:1.6;">Subscribe to our newsletter for research updates and program news.</p>
+        {% include "components/_newsletter.html" with context %}
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <span>&copy; {{ 2026 }} Demopolis Coalition. All rights reserved.</span>
+      <div class="footer__bottom-links">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>

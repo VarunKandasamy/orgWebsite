@@ -1,0 +1,7 @@
+{% set form_id = form_id if form_id is defined else "footer-newsletter-form" %}
+{% set confirm_id = confirm_id if confirm_id is defined else "footer-newsletter-confirm" %}
+<form id="{{ form_id }}" novalidate>
+  <input type="email" name="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+  <button type="submit">Subscribe</button>
+</form>
+<div id="{{ confirm_id }}" class="footer__newsletter-confirm" role="status" aria-live="polite"></div>

@@ -1,0 +1,124 @@
+/* ============================================================
+   SUBTAB SYSTEM
+   ============================================================ */
+
+.tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs__link {
+  display: inline-block;
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.tabs__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+
+.tabs__link:hover {
+  color: var(--color-navy);
+}
+
+.tabs__link:hover::after {
+  transform: scaleX(1);
+}
+
+.tabs__link.active {
+  color: var(--color-navy);
+}
+
+.tabs__link.active::after {
+  transform: scaleX(1);
+}
+
+/* ---- Tab content ---- */
+.tab-content {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- City filter ---- */
+.city-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.city-filter__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.city-filter__link {
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-border);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.city-filter__link:hover,
+.city-filter__link.active {
+  background: var(--color-navy);
+  color: #fff;
+  border-color: var(--color-navy);
+}
+
+.city-filter__link--all {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.city-filter__link--all:hover,
+.city-filter__link--all.active {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  border-color: var(--color-gold);
+}
+
+@media (max-width: 480px) {
+  .tabs__link {
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+  }
+}

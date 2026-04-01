@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Demopolis Coalition{% endblock %}</title>
+  <meta name="description" content="{% block description %}Demopolis Coalition fosters active participation in local governance and government across America.{% endblock %}">
+
+  <!-- Google Fonts: Cormorant Garamond + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/nav.css">
+  <link rel="stylesheet" href="/static/css/hero.css">
+  <link rel="stylesheet" href="/static/css/cards.css">
+  <link rel="stylesheet" href="/static/css/tabs.css">
+  <link rel="stylesheet" href="/static/css/map.css">
+  <link rel="stylesheet" href="/static/css/contact.css">
+  <link rel="stylesheet" href="/static/css/footer.css">
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  {% include "components/_nav.html" %}
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "components/_footer.html" %}
+
+  <!-- JS -->
+  <script src="/static/js/newsletter.js" defer></script>
+  <script src="/static/js/main.js" defer></script>
+  {% block extra_scripts %}{% endblock %}
+
+</body>
+</html>

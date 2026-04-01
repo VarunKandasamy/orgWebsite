@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Research Program — Demopolis Coalition{% endblock %}
+{% block description %}Demopolis Coalition's Research Department conducts evidence-based research on local politics and civic engagement.{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="section-label">Program</div>
+      <h1 class="section-title">Research Program</h1>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Subtabs -->
+    <nav class="tabs" aria-label="Research subtabs">
+      <a href="/research/what-we-do" class="tabs__link {% if active_tab == 'what-we-do' %}active{% endif %}">What We Do</a>
+      <a href="/research/shortform" class="tabs__link {% if active_tab == 'shortform' %}active{% endif %}">Shortform Works</a>
+      <a href="/research/longform" class="tabs__link {% if active_tab == 'longform' %}active{% endif %}">Longform Works</a>
+    </nav>
+
+    <!-- ---- WHAT WE DO ---- -->
+    {% if active_tab == 'what-we-do' %}
+    <div class="tab-content">
+      <div style="max-width:780px;">
+        <p class="section-body" style="margin-bottom:2rem;">
+          The Research Department supports Demopolis Coalition's mission to strengthen participation in local politics across the United States. Led by Director <strong>Lauren Elle Darby</strong>, the department conducts research that helps those involved with the organization — as well as our internal departments — understand local politics and expand into new communities.
+        </p>
+
+        <h2 class="section-title" style="font-size:1.5rem; margin-bottom:0.75rem;">Our Work</h2>
+        <p class="section-body" style="margin-bottom:2rem;">
+          We currently operate in four different states: New Jersey, Oklahoma, Massachusetts, and Georgia. The Research Department serves as an innovative hub to analyze the histories and diverse political landscapes of the localities in which the organization operates. Our research informs internal strategy while generating suggestions on how we can evolve. Additionally, our research is shared with donors, sponsors, and government officials to create tangible change in local policies.
+        </p>
+
+        <h2 class="section-title" style="font-size:1.5rem; margin-bottom:0.75rem;">Our Vision</h2>
+        <p class="section-body" style="margin-bottom:2rem;">
+          Over the next year, this department will undergo a transition to operate as a think-tank — going beyond providing internal research to producing extensive research that will influence the future of local politics. As this transition progresses, the department will provide both city- and state-level briefings and reports that inform discussions on how local government can best serve the people they represent.
+        </p>
+
+        <h2 class="section-title" style="font-size:1.5rem; margin-bottom:1.25rem;">Our Team</h2>
+        <p class="section-body" style="margin-bottom:1.5rem;">The Research Department is led by a Director and seven specialized subdivisions:</p>
+
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          {% set subdivisions = [
+            ("History", "Works to find out the history, culture, and demographics of each locality we currently operate in and are looking to expand into."),
+            ("Civic Research & Local Politics", "Finds out what is going on in all our localities' local governments and evaluates what matters to the people."),
+            ("Curriculum & Chapter Education", "Develops a curriculum for all college chapters to follow, working with our Chapters Program to teach students about local politics."),
+            ("Progress", "Discovers innovative ways for the organization to move forward using evidence curated by the rest of the research department."),
+            ("Finance", "Evaluates the department's expenses and how they are used in tandem with the rest of the organization."),
+            ("Data Collection & Analysis", "Collects and analyzes data across all operating localities to support evidence-based recommendations."),
+            ("Ethnographic Research", "Performs qualitative analysis of people within our localities to gauge what they view as the key issues in society.")
+          ] %}
+          {% for name, desc in subdivisions %}
+          <div style="display:flex; gap:1rem; align-items:flex-start; padding:1.25rem; background:var(--color-warm-white); border-left:3px solid var(--color-gold);">
+            <div>
+              <div style="font-family:var(--font-body); font-size:0.8rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-gold); margin-bottom:0.375rem;">{{ name }}</div>
+              <p style="font-size:0.9375rem; color:var(--color-muted); line-height:1.65;">{{ desc }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- SHORTFORM ---- -->
+    {% elif active_tab == 'shortform' %}
+    <div class="tab-content">
+      <div class="page-header" style="margin-bottom:2rem;">
+        <p class="section-body">Policy briefs, research notes, and shorter analyses from our team across all four operating states.</p>
+      </div>
+      <div class="cards-grid">
+        {% for work in shortform_works %}
+        <article class="card">
+          <div class="card__body">
+            <div class="card__category">{{ work.state }} &bull; {{ work.type }}</div>
+            <h2 class="card__title">{{ work.title }}</h2>
+            <p class="card__excerpt">{{ work.description }}</p>
+            <div class="card__meta">
+              <span class="card__date">{{ work.date }}</span>
+              <a href="#" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;">Read</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- ---- LONGFORM ---- -->
+    {% elif active_tab == 'longform' %}
+    <div class="tab-content">
+      <div style="margin-bottom:2rem;">
+        <p class="section-body" style="margin-bottom:1.5rem;">Comprehensive reports, full-length research, and city-level studies from our Research Department.</p>
+
+        <!-- City filter -->
+        <div class="city-filter">
+          <span class="city-filter__label">Filter by city:</span>
+          <a href="/research/longform" class="city-filter__link city-filter__link--all {% if not selected_city %}active{% endif %}">All</a>
+          {% for city in cities %}
+          <a href="/research/longform?city={{ city }}" class="city-filter__link {% if selected_city == city %}active{% endif %}">{{ city }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if longform_works %}
+      <div class="cards-grid">
+        {% for work in longform_works %}
+        <article class="card">
+          <div class="card__body">
+            <div class="card__category">{{ work.state }} &bull; {{ work.type }}</div>
+            <h2 class="card__title">{{ work.title }}</h2>
+            <p class="card__excerpt">{{ work.description }}</p>
+            <div class="card__meta">
+              <span class="card__date">{{ work.date }}</span>
+              <span class="card__pages">{{ work.pages }} pp.</span>
+              <a href="#" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;">Download</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p style="color:var(--color-muted); font-size:0.9375rem;">No reports found for this city.</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

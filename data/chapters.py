@@ -1,0 +1,38 @@
+CHAPTER_LOCATIONS = [
+    {
+        "name": "New Jersey Chapter",
+        "city": "Trenton",
+        "state": "NJ",
+        "lat": 40.2171,
+        "lng": -74.7429,
+        "description": "Our New Jersey chapter is based in Trenton and works with universities and civic institutions across the Garden State to engage students in local governance.",
+        "status": "Active",
+    },
+    {
+        "name": "Oklahoma Chapter",
+        "city": "Oklahoma City",
+        "state": "OK",
+        "lat": 35.4676,
+        "lng": -97.5164,
+        "description": "Our Oklahoma chapter operates out of Oklahoma City, partnering with universities and local government to strengthen civic participation in the region.",
+        "status": "Active",
+    },
+    {
+        "name": "Massachusetts Chapter",
+        "city": "Boston",
+        "state": "MA",
+        "lat": 42.3601,
+        "lng": -71.0589,
+        "description": "Our Massachusetts chapter is headquartered in Boston, collaborating with universities and civic organizations throughout the Commonwealth.",
+        "status": "Active",
+    },
+    {
+        "name": "Georgia Chapter",
+        "city": "Atlanta",
+        "state": "GA",
+        "lat": 33.7490,
+        "lng": -84.3880,
+        "description": "Our Georgia chapter is based in Atlanta and focuses on engaging students and community members in local civic and political life across the state.",
+        "status": "Active",
+    },
+]

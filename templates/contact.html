@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Contact — Demopolis Coalition{% endblock %}
+{% block description %}Get in touch with Demopolis Coalition for partnership inquiries or general questions.{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="section-label">Get in Touch</div>
+      <h1 class="section-title">Contact Us</h1>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Success banner -->
+    {% if submitted %}
+    <div class="success-banner" role="alert">
+      {% if submitted == 'partnership' %}
+        Thank you for your partnership inquiry. We will be in touch shortly.
+      {% else %}
+        Thank you for reaching out. We will respond to your message soon.
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Intro -->
+    <div class="contact-intro">
+      <p>
+        We would love to hear from you — whether you are interested in partnering with us, have questions about our programs, or have ideas you think we should explore. We welcome all inquiries and appreciate your engagement.
+      </p>
+    </div>
+
+    <!-- Two forms side by side -->
+    <div class="contact-grid">
+
+      <!-- Partnership Inquiries -->
+      <div class="contact-form-section">
+        <h2 class="contact-form-title">Partnership Inquiries</h2>
+        <p class="contact-form-subtitle">For non-profits, government institutions, universities, and private sector organizations interested in partnering with Demopolis Coalition.</p>
+
+        <form method="post" action="/contact/partnership">
+          <div class="form-group">
+            <label class="form-label" for="partnership-name">Your Name</label>
+            <input class="form-input" type="text" id="partnership-name" name="name" required placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="partnership-org">Organization</label>
+            <input class="form-input" type="text" id="partnership-org" name="organization" required placeholder="Organization name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="partnership-email">Email Address</label>
+            <input class="form-input" type="email" id="partnership-email" name="email" required placeholder="you@organization.org">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="partnership-message">Message</label>
+            <textarea class="form-textarea" id="partnership-message" name="message" required placeholder="Tell us about your organization and how you'd like to partner with us…"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold">Send Inquiry</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- General Inquiries -->
+      <div class="contact-form-section">
+        <h2 class="contact-form-title">General Inquiries</h2>
+        <p class="contact-form-subtitle">For questions about our programs, ideas you'd like to share, or anything else you'd like to tell us. We want to hear from you.</p>
+
+        <form method="post" action="/contact/general">
+          <div class="form-group">
+            <label class="form-label" for="general-name">Your Name</label>
+            <input class="form-input" type="text" id="general-name" name="name" required placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="general-email">Email Address</label>
+            <input class="form-input" type="email" id="general-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="general-subject">Subject</label>
+            <input class="form-input" type="text" id="general-subject" name="subject" required placeholder="What is this about?">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="general-message">Message</label>
+            <textarea class="form-textarea" id="general-message" name="message" required placeholder="Your message, questions, ideas…"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold">Send Message</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

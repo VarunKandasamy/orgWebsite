@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Demopolis Coalition — Civic Engagement for Local Democracy{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">Civic Engagement &bull; Local Democracy</div>
+    <h1 class="hero__title">Reinvigorating<br>Local Political Life</h1>
+    <p class="hero__subtitle">
+      Demopolis Coalition fosters and encourages Americans' active participation in local governance — building stronger communities, one city at a time.
+    </p>
+
+    <!-- Newsletter inline -->
+    <form id="hero-newsletter-form" class="hero__newsletter" novalidate>
+      <input type="email" name="email" placeholder="Your email address" required aria-label="Email for newsletter">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="hero-newsletter-confirm" class="hero__newsletter-confirm" role="status" aria-live="polite"></div>
+  </div>
+
+  <!-- Featured program boxes -->
+  <div class="hero__features">
+    <a href="/research" class="hero__feature-box">
+      <div class="hero__feature-icon">&#128200;</div>
+      <div class="hero__feature-text">
+        <h3>Research Program</h3>
+        <p>Evidence-based insights on local political landscapes</p>
+      </div>
+      <div class="hero__feature-arrow">&#8594;</div>
+    </a>
+    <a href="/chapters" class="hero__feature-box">
+      <div class="hero__feature-icon">&#127963;</div>
+      <div class="hero__feature-text">
+        <h3>Chapters Program</h3>
+        <p>Engaging students in local civic and political life</p>
+      </div>
+      <div class="hero__feature-arrow">&#8594;</div>
+    </a>
+  </div>
+</section>
+
+{% endblock %}

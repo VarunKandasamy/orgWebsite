@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Chapters Program — Demopolis Coalition{% endblock %}
+{% block description %}Demopolis Coalition's Chapters Program engages students at colleges and universities in local politics and civic life.{% endblock %}
+
+{% block extra_head %}
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="section-label">Program</div>
+      <h1 class="section-title">Chapters Program</h1>
+      <div class="divider"></div>
+      <p class="section-body">
+        Our Chapters Program enables students at colleges and universities across America to engage directly in local politics and civic life. Led by Director <strong>Ben Kelley</strong>, we currently operate chapters in four states.
+      </p>
+    </div>
+
+    <!-- Map -->
+    <div class="map-section">
+      <div id="chapters-map" role="img" aria-label="Map showing Demopolis Coalition chapter locations"></div>
+    </div>
+
+    <!-- Chapter info cards -->
+    <div class="page-header" style="margin-top:3rem;">
+      <h2 class="section-title">Our Chapters</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="chapters-cards">
+      {% for chapter in chapter_locations %}
+      <div class="chapter-card">
+        <div class="chapter-card__state">{{ chapter.state }} &bull; {{ chapter.status }}</div>
+        <h3 class="chapter-card__name">{{ chapter.name }}</h3>
+        <p class="chapter-card__desc">{{ chapter.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- How to start a chapter -->
+    <div style="margin-top:4rem; padding:3rem; background:var(--color-navy); color:#fff;">
+      <div class="section-label" style="color:var(--color-gold);">Get Involved</div>
+      <h2 style="font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2rem); margin-bottom:1rem; font-weight:400;">Start a Chapter at Your University</h2>
+      <p style="color:rgba(255,255,255,0.7); max-width:600px; line-height:1.75; margin-bottom:1.75rem;">
+        Any interested student can set up a Demopolis Coalition chapter at their college or university. Our Chapters Program provides the curriculum, resources, and support to get started.
+      </p>
+      <a href="/contact" class="btn btn-gold">Get in Touch</a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPaU=" crossorigin=""></script>
+<script>
+  window.CHAPTER_LOCATIONS = {{ chapter_locations | tojson }};
+</script>
+<script src="/static/js/map.js"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}News — Demopolis Coalition{% endblock %}
+{% block description %}Latest news and updates from Demopolis Coalition.{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <div class="container">
+
+    <div class="page-header">
+      <div class="section-label">Latest Updates</div>
+      <h1 class="section-title">News</h1>
+      <div class="divider"></div>
+      <p class="section-body">Stay informed on the latest from our programs, research, and partnerships across our four operating states.</p>
+    </div>
+
+    <div class="cards-grid">
+      {% for item in news_items %}
+      <article class="card">
+        <div class="card__body">
+          <div class="card__category">{{ item.category }}</div>
+          <h2 class="card__title">{{ item.title }}</h2>
+          <p class="card__excerpt">{{ item.excerpt }}</p>
+          <div class="card__meta">
+            <span class="card__date">{{ item.date }}</span>
+            <a href="#" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;">Read More</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}

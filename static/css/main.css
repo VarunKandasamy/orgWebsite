@@ -1,0 +1,185 @@
+/* ============================================================
+   DEMOPOLIS COALITION — MAIN CSS
+   Design tokens, typography, resets, utilities
+   ============================================================ */
+
+:root {
+  --color-navy:       #1E2A3A;
+  --color-navy-dark:  #151f2d;
+  --color-gold:       #C5A44E;
+  --color-gold-light: #d4b76a;
+  --color-light:      #EDEDEE;
+  --color-warm-white: #F5F0E8;
+  --color-text:       #2c2c2c;
+  --color-muted:      #6b7280;
+  --color-border:     #d1cdc7;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --max-width: 1200px;
+  --nav-height: 64px;
+
+  --transition: 0.2s ease;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-light);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1.5px solid var(--color-gold);
+}
+
+.btn-outline-gold:hover {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.6);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ---- Page padding ---- */
+.page-content {
+  padding-top: calc(var(--nav-height) + 3rem);
+  padding-bottom: 5rem;
+  min-height: 80vh;
+}
+
+/* ---- Section titles ---- */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.section-body {
+  font-size: 1.0625rem;
+  color: var(--color-muted);
+  max-width: 680px;
+  line-height: 1.75;
+}
+
+/* ---- Divider ---- */
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 1.25rem 0;
+}
+
+/* ---- Success banner ---- */
+.success-banner {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.9375rem;
+}
+
+/* ---- Responsive helpers ---- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .page-content {
+    padding-top: calc(var(--nav-height) + 2rem);
+    padding-bottom: 3rem;
+  }
+}
