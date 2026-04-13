@@ -10,6 +10,7 @@ templates = Jinja2Templates(directory="templates")
 @router.get("/chapters", response_class=HTMLResponse)
 async def chapters(request: Request):
     return templates.TemplateResponse(
+        request,
         "chapters/index.html",
-        {"request": request, "chapter_locations": CHAPTER_LOCATIONS},
+        {"chapter_locations": CHAPTER_LOCATIONS},
     )

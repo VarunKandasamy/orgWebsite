@@ -25,9 +25,9 @@ async def research(request: Request, tab: str, city: Optional[str] = None):
         filtered_longform = [w for w in LONGFORM_WORKS if w["city"] == city]
 
     return templates.TemplateResponse(
+        request,
         "research/index.html",
         {
-            "request": request,
             "active_tab": tab,
             "shortform_works": SHORTFORM_WORKS,
             "longform_works": filtered_longform,
