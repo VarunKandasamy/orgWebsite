@@ -1,28 +1,47 @@
-<nav class="nav" role="navigation" aria-label="Main navigation">
+<!-- Logo header bar -->
+<div id="logo-header">
+  <a href="/" class="logo-header__link" aria-label="Demopolis Coalition — Home">
+    <svg class="logo-header__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="4" y="28" width="28" height="3" fill="#C5A44E"/>
+      <rect x="4" y="14" width="4" height="14" fill="#C5A44E"/>
+      <rect x="28" y="14" width="4" height="14" fill="#C5A44E"/>
+      <path d="M4 28 C4 14 8 6 18 4 C28 6 32 14 32 28" stroke="#C5A44E" stroke-width="2.5" fill="none"/>
+    </svg>
+    Demopolis Coalition
+  </a>
+</div>
+
+<nav class="nav at-top" role="navigation" aria-label="Main navigation">
   <div class="nav__inner">
-    <!-- Logo -->
+    <!-- Nav-internal logo (appears when scrolled) -->
     <a href="/" class="nav__logo" aria-label="Demopolis Coalition — Home">
       <svg class="nav__logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <!-- Arch SVG placeholder representing civic / classical architecture -->
         <rect x="4" y="28" width="28" height="3" fill="#C5A44E"/>
-        <rect x="4" y="28" width="4" height="14" y="14" fill="#C5A44E"/>
+        <rect x="4" y="14" width="4" height="14" fill="#C5A44E"/>
         <rect x="28" y="14" width="4" height="14" fill="#C5A44E"/>
         <path d="M4 28 C4 14 8 6 18 4 C28 6 32 14 32 28" stroke="#C5A44E" stroke-width="2.5" fill="none"/>
-        <rect x="4" y="27" width="4" height="1" fill="#C5A44E"/>
-        <rect x="28" y="27" width="4" height="1" fill="#C5A44E"/>
       </svg>
       <span class="nav__logo-text">Demopolis Coalition</span>
     </a>
 
     <!-- Desktop links -->
     <ul class="nav__links" role="list">
-      <li><a href="/news" class="nav__link">News</a></li>
       <li><a href="/research" class="nav__link">Research Program</a></li>
       <li><a href="/chapters" class="nav__link">Chapters Program</a></li>
-      <li><a href="/about" class="nav__link">About Us</a></li>
-      <li><a href="/contact" class="nav__link">Contact</a></li>
       <li><span class="nav__link nav__link--soon" title="Coming soon">McGuffey</span></li>
       <li><span class="nav__link nav__link--soon" title="Coming soon">Journalism</span></li>
+      <li><a href="/news" class="nav__link">News</a></li>
+      <li class="nav__item nav__item--dropdown">
+        <a href="/about" class="nav__link" aria-haspopup="true" aria-expanded="false" id="about-nav-btn">About Us</a>
+        <div class="nav__dropdown" role="menu" aria-label="About Us submenu">
+          <a href="/about/mission"    class="nav__dropdown-link" role="menuitem">Mission &amp; Vision</a>
+          <a href="/about/what-we-do" class="nav__dropdown-link" role="menuitem">What We Do</a>
+          <a href="/about/team"       class="nav__dropdown-link" role="menuitem">Team</a>
+          <a href="/about/partners"   class="nav__dropdown-link" role="menuitem">Our Partners</a>
+        </div>
+      </li>
+      <li><a href="/contact" class="nav__link">Contact</a></li>
+      <li><a href="/contact?ref=donate" class="nav__link nav__link--donate">Donate</a></li>
     </ul>
 
     <!-- Hamburger -->
@@ -36,9 +55,14 @@
 
 <!-- Mobile menu -->
 <div class="nav__mobile" id="nav-mobile" role="menu">
-  <a href="/news" class="nav__link" role="menuitem">News</a>
   <a href="/research" class="nav__link" role="menuitem">Research Program</a>
   <a href="/chapters" class="nav__link" role="menuitem">Chapters Program</a>
-  <a href="/about" class="nav__link" role="menuitem">About Us</a>
+  <a href="/news" class="nav__link" role="menuitem">News</a>
+  <div class="nav__mobile-section">About Us</div>
+  <a href="/about/mission"    class="nav__link" role="menuitem" style="padding-left:0.75rem;">Mission &amp; Vision</a>
+  <a href="/about/what-we-do" class="nav__link" role="menuitem" style="padding-left:0.75rem;">What We Do</a>
+  <a href="/about/team"       class="nav__link" role="menuitem" style="padding-left:0.75rem;">Team</a>
+  <a href="/about/partners"   class="nav__link" role="menuitem" style="padding-left:0.75rem;">Our Partners</a>
   <a href="/contact" class="nav__link" role="menuitem">Contact</a>
+  <a href="/contact?ref=donate" class="nav__link nav__link--donate" role="menuitem" style="margin-top:0.5rem; text-align:center;">Donate</a>
 </div>

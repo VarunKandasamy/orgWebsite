@@ -102,8 +102,41 @@
 
 .team-card {
   background: var(--color-warm-white);
-  padding: 2rem 1.75rem;
+  padding: 0 0 1.75rem;
   border-left: 3px solid var(--color-gold);
+  overflow: hidden;
+}
+
+.team-card__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--color-light);
+  background-image: linear-gradient(135deg, #d8d4cc 0%, #ededee 50%, #d8d4cc 100%);
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.team-card__photo::after {
+  content: 'Photo';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-border);
+}
+
+.team-card__name,
+.team-card__title,
+.team-card__dept,
+.team-card__bio {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .team-card__name {

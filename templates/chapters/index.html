@@ -26,18 +26,24 @@
       <div id="chapters-map" role="img" aria-label="Map showing Demopolis Coalition chapter locations"></div>
     </div>
 
-    <!-- Chapter info cards -->
+    <!-- Chapter info cards (expandable) -->
     <div class="page-header" style="margin-top:3rem;">
       <h2 class="section-title">Our Chapters</h2>
       <div class="divider"></div>
+      <p style="font-size:0.85rem; color:var(--color-muted); margin-top:-0.5rem;">Click a chapter to learn more.</p>
     </div>
 
     <div class="chapters-cards">
       {% for chapter in chapter_locations %}
       <div class="chapter-card">
-        <div class="chapter-card__state">{{ chapter.state }} &bull; {{ chapter.status }}</div>
-        <h3 class="chapter-card__name">{{ chapter.name }}</h3>
-        <p class="chapter-card__desc">{{ chapter.description }}</p>
+        <button class="chapter-card__summary" aria-expanded="false" aria-controls="chapter-body-{{ loop.index }}">
+          <div class="chapter-card__state">{{ chapter.state }} &bull; {{ chapter.status }}</div>
+          <h3 class="chapter-card__name">{{ chapter.name }}</h3>
+          <span class="chapter-card__chevron" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="chapter-card__body" id="chapter-body-{{ loop.index }}" style="max-height:0; overflow:hidden; transition:max-height 0.3s ease;">
+          <p class="chapter-card__desc">{{ chapter.description }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>

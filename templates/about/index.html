@@ -7,6 +7,9 @@
 <div class="page-content">
   <div class="container">
 
+    <!-- About page banner image -->
+    <div class="about-banner" aria-hidden="true"></div>
+
     <div class="page-header">
       <div class="section-label">About</div>
       <h1 class="section-title">About Us</h1>
@@ -107,6 +110,7 @@
       <div class="team-grid">
         {% for member in team_members %}
         <div class="team-card">
+          <div class="team-card__photo" aria-hidden="true"></div>
           <div class="team-card__name">{{ member.name }}</div>
           <div class="team-card__title">{{ member.title }}</div>
           <div class="team-card__dept">{{ member.department }}</div>

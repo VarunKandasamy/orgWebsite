@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: calc(var(--nav-height) + 5rem);
+  padding-top: calc(var(--logo-bar-h) + var(--nav-height) + 5rem);
   text-align: center;
 }
 
@@ -181,7 +181,7 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 100svh;
-    padding-top: calc(var(--nav-height) + 3rem);
+    padding-top: calc(var(--logo-bar-h) + var(--nav-height) + 3rem);
   }
 
   .hero__features {
