@@ -10,8 +10,9 @@ templates = Jinja2Templates(directory="templates")
 @router.get("/contact", response_class=HTMLResponse)
 async def contact(request: Request, submitted: Optional[str] = None):
     return templates.TemplateResponse(
+        request,
         "contact.html",
-        {"request": request, "submitted": submitted},
+        {"submitted": submitted},
     )
 
 
