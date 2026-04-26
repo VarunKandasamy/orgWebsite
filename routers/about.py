@@ -20,9 +20,9 @@ async def about(request: Request, tab: str):
         return RedirectResponse(url="/about/mission")
 
     return templates.TemplateResponse(
+        request,
         "about/index.html",
         {
-            "request": request,
             "active_tab": tab,
             "team_members": TEAM_MEMBERS,
             "partners": PARTNERS,
