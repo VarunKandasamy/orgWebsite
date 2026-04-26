@@ -22,21 +22,16 @@
 }
 
 .logo-header__link {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 500;
-  color: var(--color-gold);
-  letter-spacing: 0.06em;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  height: 100%;
 }
 
-.logo-header__icon {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
+.logo-header__img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* ---- Main nav ---- */
@@ -54,11 +49,11 @@
   backdrop-filter: blur(0px);
 }
 
-/* When at top: translucent with subtle blur */
+/* When at top: semi-transparent with blur */
 .nav.at-top {
-  background: rgba(30, 42, 58, 0.18);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(30, 42, 58, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* When scrolled: logo header gone, nav snaps to top and goes solid */
@@ -96,19 +91,10 @@
   pointer-events: auto;
 }
 
-.nav__logo-icon {
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-}
-
-.nav__logo-text {
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  font-weight: 500;
-  color: #fff;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
+.nav__logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* ---- Links ---- */
@@ -190,7 +176,7 @@
 .nav__item--dropdown.is-open .nav__dropdown {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .nav__dropdown {
@@ -260,15 +246,17 @@
 .nav__mobile {
   display: none;
   position: fixed;
-  top: var(--nav-height);
+  top: calc(var(--logo-bar-h) + var(--nav-height));
   left: 0;
   right: 0;
   background: var(--color-navy-dark);
   padding: 1.5rem 2rem;
   flex-direction: column;
   gap: 0.25rem;
-  z-index: 999;
+  z-index: 1002;
   border-top: 1px solid rgba(255,255,255,0.08);
+  max-height: calc(100vh - var(--logo-bar-h) - var(--nav-height));
+  overflow-y: auto;
 }
 
 .nav__mobile.is-open {
@@ -277,6 +265,7 @@
 
 .nav.is-scrolled ~ .nav__mobile {
   top: var(--nav-height);
+  max-height: calc(100vh - var(--nav-height));
 }
 
 .nav__mobile .nav__link {

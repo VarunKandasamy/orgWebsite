@@ -131,12 +131,60 @@
   color: var(--color-border);
 }
 
+.team-card__photo-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
 .team-card__name,
 .team-card__title,
 .team-card__dept,
-.team-card__bio {
+.team-card__bio,
+.team-card__contact {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.team-card__contact {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.team-card__contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+  word-break: break-all;
+}
+
+.team-card__contact-link:hover {
+  color: var(--color-gold);
+}
+
+.team-card__contact-icon {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  background: var(--color-light);
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .team-card__name {

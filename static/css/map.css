@@ -2,6 +2,22 @@
    CHAPTERS MAP
    ============================================================ */
 
+/* ---- Parthenon image (replaces map) ---- */
+.chapters-map-img {
+  height: 500px;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.chapters-map-img__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
 .map-section {
   margin-bottom: 4rem;
 }
@@ -139,7 +155,7 @@
 }
 
 @media (max-width: 600px) {
-  #chapters-map {
+  .chapters-map-img {
     height: 360px;
   }
 }

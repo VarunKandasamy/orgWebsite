@@ -3,11 +3,6 @@
 {% block title %}Chapters Program — Demopolis Coalition{% endblock %}
 {% block description %}Demopolis Coalition's Chapters Program engages students at colleges and universities in local politics and civic life.{% endblock %}
 
-{% block extra_head %}
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-{% endblock %}
-
 {% block content %}
 <div class="page-content">
   <div class="container">
@@ -21,9 +16,11 @@
       </p>
     </div>
 
-    <!-- Map -->
+    <!-- Parthenon image (replaces map) -->
     <div class="map-section">
-      <div id="chapters-map" role="img" aria-label="Map showing Demopolis Coalition chapter locations"></div>
+      <div class="chapters-map-img">
+        <img src="/static/images/nashville-the-parthenon.jpg" alt="The Parthenon, Nashville" class="chapters-map-img__photo">
+      </div>
     </div>
 
     <!-- Chapter info cards (expandable) -->
@@ -60,13 +57,4 @@
 
   </div>
 </div>
-{% endblock %}
-
-{% block extra_scripts %}
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPaU=" crossorigin=""></script>
-<script>
-  window.CHAPTER_LOCATIONS = {{ chapter_locations | tojson }};
-</script>
-<script src="/static/js/map.js"></script>
 {% endblock %}

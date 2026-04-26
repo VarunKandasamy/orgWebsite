@@ -7,9 +7,6 @@
 <div class="page-content">
   <div class="container">
 
-    <!-- About page banner image -->
-    <div class="about-banner" aria-hidden="true"></div>
-
     <div class="page-header">
       <div class="section-label">About</div>
       <h1 class="section-title">About Us</h1>
@@ -110,15 +107,37 @@
       <div class="team-grid">
         {% for member in team_members %}
         <div class="team-card">
+          {% if member.photo %}
+          <img src="/static/images/{{ member.photo }}" alt="{{ member.name }}" class="team-card__photo-img">
+          {% else %}
           <div class="team-card__photo" aria-hidden="true"></div>
+          {% endif %}
           <div class="team-card__name">{{ member.name }}</div>
           <div class="team-card__title">{{ member.title }}</div>
           <div class="team-card__dept">{{ member.department }}</div>
           <p class="team-card__bio">{{ member.bio }}</p>
+          {% if member.linkedin or member.phone or member.email %}
+          <div class="team-card__contact">
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" class="team-card__contact-link" target="_blank" rel="noopener noreferrer">
+              <span class="team-card__contact-icon">in</span> LinkedIn
+            </a>
+            {% endif %}
+            {% if member.email %}
+            <a href="mailto:{{ member.email }}" class="team-card__contact-link">
+              <span class="team-card__contact-icon">@</span> {{ member.email }}
+            </a>
+            {% endif %}
+            {% if member.phone %}
+            <a href="tel:{{ member.phone }}" class="team-card__contact-link">
+              <span class="team-card__contact-icon">&#9990;</span> {{ member.phone }}
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
         </div>
         {% endfor %}
       </div>
-      <p style="color:var(--color-muted); font-size:0.875rem; margin-top:2rem; font-style:italic;">Full team profiles coming soon.</p>
     </div>
 
     <!-- ---- PARTNERS ---- -->
