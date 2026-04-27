@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from data.research import LONGFORM_WORKS, CITIES
+from data.research import SHORTFORM_WORKS, LONGFORM_WORKS, CITIES
 from typing import Optional
 
 router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
-TABS = ["what-we-do", "longform"]
+TABS = ["what-we-do", "shortform", "longform"]
 
 
 @router.get("/research", response_class=HTMLResponse)
@@ -29,6 +29,7 @@ async def research(request: Request, tab: str, city: Optional[str] = None):
         "research/index.html",
         {
             "active_tab": tab,
+            "shortform_works": SHORTFORM_WORKS,
             "longform_works": filtered_longform,
             "cities": CITIES,
             "selected_city": city,

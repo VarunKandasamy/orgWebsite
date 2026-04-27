@@ -1,3 +1,4 @@
+SHORTFORM_WORKS = []
 
 LONGFORM_WORKS = [
     {

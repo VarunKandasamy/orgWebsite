@@ -13,17 +13,6 @@
       <div class="divider"></div>
     </div>
 
-    <!-- Success banner -->
-    {% if submitted %}
-    <div class="success-banner" role="alert">
-      {% if submitted == 'partnership' %}
-        Thank you for your partnership inquiry. We will be in touch shortly.
-      {% else %}
-        Thank you for reaching out. We will respond to your message soon.
-      {% endif %}
-    </div>
-    {% endif %}
-
     <!-- Intro -->
     <div class="contact-intro">
       <p>
@@ -39,7 +28,7 @@
         <h2 class="contact-form-title">Partnership Inquiries</h2>
         <p class="contact-form-subtitle">For non-profits, government institutions, universities, and private sector organizations interested in partnering with Demopolis Coalition.</p>
 
-        <form method="post" action="/contact/partnership">
+        <form id="partnership-form" onsubmit="submitMailto(this, 'partnership'); return false;">
           <div class="form-group">
             <label class="form-label" for="partnership-name">Your Name</label>
             <input class="form-input" type="text" id="partnership-name" name="name" required placeholder="Full name">
@@ -67,7 +56,7 @@
         <h2 class="contact-form-title">General Inquiries</h2>
         <p class="contact-form-subtitle">For questions about our programs, ideas you'd like to share, or anything else you'd like to tell us. We want to hear from you.</p>
 
-        <form method="post" action="/contact/general">
+        <form id="general-form" onsubmit="submitMailto(this, 'general'); return false;">
           <div class="form-group">
             <label class="form-label" for="general-name">Your Name</label>
             <input class="form-input" type="text" id="general-name" name="name" required placeholder="Full name">
@@ -94,4 +83,29 @@
 
   </div>
 </div>
+
+<script>
+function submitMailto(form, type) {
+  const to = 'wg6934@princeton.edu';
+  let subject, body;
+
+  if (type === 'partnership') {
+    const name    = form.querySelector('[name="name"]').value.trim();
+    const org     = form.querySelector('[name="organization"]').value.trim();
+    const email   = form.querySelector('[name="email"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+    subject = 'Partnership Inquiry from ' + name;
+    body = 'Type: Partnership Inquiry\n\nName: ' + name + '\nOrganization: ' + org + '\nEmail: ' + email + '\n\nMessage:\n' + message;
+  } else {
+    const name    = form.querySelector('[name="name"]').value.trim();
+    const email   = form.querySelector('[name="email"]').value.trim();
+    const subject_field = form.querySelector('[name="subject"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
+    subject = 'General Inquiry: ' + subject_field + ' (from ' + name + ')';
+    body = 'Type: General Inquiry\n\nName: ' + name + '\nEmail: ' + email + '\nSubject: ' + subject_field + '\n\nMessage:\n' + message;
+  }
+
+  window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+</script>
 {% endblock %}

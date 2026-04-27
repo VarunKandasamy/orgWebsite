@@ -16,7 +16,8 @@
     <!-- Subtabs -->
     <nav class="tabs" aria-label="Research subtabs">
       <a href="/research/what-we-do" class="tabs__link {% if active_tab == 'what-we-do' %}active{% endif %}">What We Do</a>
-      <a href="/research/longform" class="tabs__link {% if active_tab == 'longform' %}active{% endif %}">Longform Works</a>
+      <a href="/research/shortform"  class="tabs__link {% if active_tab == 'shortform'  %}active{% endif %}">Shortform Works</a>
+      <a href="/research/longform"   class="tabs__link {% if active_tab == 'longform'   %}active{% endif %}">Longform Works</a>
     </nav>
 
     <!-- ---- WHAT WE DO ---- -->
@@ -45,8 +46,6 @@
             ("History", "Works to find out the history, culture, and demographics of each locality we currently operate in and are looking to expand into."),
             ("Civic Research & Local Politics", "Finds out what is going on in all our localities' local governments and evaluates what matters to the people."),
             ("Curriculum & Chapter Education", "Develops a curriculum for all college chapters to follow, working with our Chapters Program to teach students about local politics."),
-            ("Progress", "Discovers innovative ways for the organization to move forward using evidence curated by the rest of the research department."),
-            ("Finance", "Evaluates the department's expenses and how they are used in tandem with the rest of the organization."),
             ("Data Collection & Analysis", "Collects and analyzes data across all operating localities to support evidence-based recommendations."),
             ("Ethnographic Research", "Performs qualitative analysis of people within our localities to gauge what they view as the key issues in society.")
           ] %}
@@ -60,6 +59,33 @@
           {% endfor %}
         </div>
       </div>
+    </div>
+
+    <!-- ---- SHORTFORM ---- -->
+    {% elif active_tab == 'shortform' %}
+    <div class="tab-content">
+      <div class="page-header" style="margin-bottom:2rem;">
+        <p class="section-body">Policy briefs, research notes, and shorter analyses from our team.</p>
+      </div>
+      {% if shortform_works %}
+      <div class="cards-grid">
+        {% for work in shortform_works %}
+        <article class="card">
+          <div class="card__body">
+            <div class="card__category">{{ work.state }} &bull; {{ work.type }}</div>
+            <h2 class="card__title">{{ work.title }}</h2>
+            <p class="card__excerpt">{{ work.description }}</p>
+            <div class="card__meta">
+              <span class="card__date">{{ work.date }}</span>
+              <a href="#" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;">Read</a>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p style="color:var(--color-muted); font-size:0.9375rem; font-style:italic;">Shortform works coming soon.</p>
+      {% endif %}
     </div>
 
     <!-- ---- LONGFORM ---- -->
