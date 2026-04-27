@@ -16,7 +16,6 @@
     <!-- Subtabs -->
     <nav class="tabs" aria-label="Research subtabs">
       <a href="/research/what-we-do" class="tabs__link {% if active_tab == 'what-we-do' %}active{% endif %}">What We Do</a>
-      <a href="/research/shortform" class="tabs__link {% if active_tab == 'shortform' %}active{% endif %}">Shortform Works</a>
       <a href="/research/longform" class="tabs__link {% if active_tab == 'longform' %}active{% endif %}">Longform Works</a>
     </nav>
 
@@ -60,29 +59,6 @@
           </div>
           {% endfor %}
         </div>
-      </div>
-    </div>
-
-    <!-- ---- SHORTFORM ---- -->
-    {% elif active_tab == 'shortform' %}
-    <div class="tab-content">
-      <div class="page-header" style="margin-bottom:2rem;">
-        <p class="section-body">Policy briefs, research notes, and shorter analyses from our team across all four operating states.</p>
-      </div>
-      <div class="cards-grid">
-        {% for work in shortform_works %}
-        <article class="card">
-          <div class="card__body">
-            <div class="card__category">{{ work.state }} &bull; {{ work.type }}</div>
-            <h2 class="card__title">{{ work.title }}</h2>
-            <p class="card__excerpt">{{ work.description }}</p>
-            <div class="card__meta">
-              <span class="card__date">{{ work.date }}</span>
-              <a href="#" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;">Read</a>
-            </div>
-          </div>
-        </article>
-        {% endfor %}
       </div>
     </div>
 
