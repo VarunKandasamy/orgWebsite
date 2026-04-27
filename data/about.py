@@ -44,17 +44,6 @@ TEAM_MEMBERS = [
         "email": "mimi.hamed16@gmail.com",
     },
     {
-        "name": "Meaghan Shepard",
-        "title": "Associate Director of Data Collection and Analysis",
-        "department": "Research Department",
-        "role": "associate",
-        "photo": "Megan.JPG",
-        "bio": "Meaghan Shepard is a student at George Washington University, expecting to graduate in May 2026. She is double majoring in Political Science and Statistics with a minor in Spanish. From her hometown in New Hampshire to attending school in Washington, DC, Meaghan has seen firsthand the importance of engagement in local politics and is passionate about working for The Demopolis Coalition. She currently serves as the Associate Director of Data Collection and Analysis.",
-        "linkedin": "https://www.linkedin.com/in/meaghan-shepard-01a3b0258/",
-        "phone": "(603) 682-5435",
-        "email": "mshepard98@gwu.edu",
-    },
-    {
         "name": "Wyatt Wells",
         "title": "Associate Director of History",
         "department": "Research Department",
