@@ -103,9 +103,13 @@
     <!-- ---- TEAM ---- -->
     {% elif active_tab == 'team' %}
     <div class="tab-content">
-      <p class="section-body" style="margin-bottom:0.5rem;">Meet the leadership driving Demopolis Coalition's programs and research.</p>
-      <div class="team-grid">
-        {% for member in team_members %}
+      <p class="section-body" style="margin-bottom:2rem;">Meet the leadership driving Demopolis Coalition's programs and research.</p>
+
+      {# ---- Directors ---- #}
+      <h2 class="section-title" style="font-size:1.375rem; margin-bottom:0.5rem;">Directors</h2>
+      <div class="divider" style="margin-bottom:1.5rem;"></div>
+      <div class="team-grid" style="margin-bottom:3.5rem;">
+        {% for member in team_members if member.role == 'director' %}
         <div class="team-card">
           {% if member.photo %}
           <img src="/static/images/{{ member.photo }}" alt="{{ member.name }}" class="team-card__photo-img">
@@ -118,21 +122,35 @@
           <p class="team-card__bio">{{ member.bio }}</p>
           {% if member.linkedin or member.phone or member.email %}
           <div class="team-card__contact">
-            {% if member.linkedin %}
-            <a href="{{ member.linkedin }}" class="team-card__contact-link" target="_blank" rel="noopener noreferrer">
-              <span class="team-card__contact-icon">in</span> LinkedIn
-            </a>
-            {% endif %}
-            {% if member.email %}
-            <a href="mailto:{{ member.email }}" class="team-card__contact-link">
-              <span class="team-card__contact-icon">@</span> {{ member.email }}
-            </a>
-            {% endif %}
-            {% if member.phone %}
-            <a href="tel:{{ member.phone }}" class="team-card__contact-link">
-              <span class="team-card__contact-icon">&#9990;</span> {{ member.phone }}
-            </a>
-            {% endif %}
+            {% if member.linkedin %}<a href="{{ member.linkedin }}" class="team-card__contact-link" target="_blank" rel="noopener noreferrer"><span class="team-card__contact-icon">in</span> LinkedIn</a>{% endif %}
+            {% if member.email %}<a href="mailto:{{ member.email }}" class="team-card__contact-link"><span class="team-card__contact-icon">@</span> {{ member.email }}</a>{% endif %}
+            {% if member.phone %}<a href="tel:{{ member.phone }}" class="team-card__contact-link"><span class="team-card__contact-icon">&#9990;</span> {{ member.phone }}</a>{% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      {# ---- Associate Directors ---- #}
+      <h2 class="section-title" style="font-size:1.375rem; margin-bottom:0.5rem;">Associate Directors</h2>
+      <div class="divider" style="margin-bottom:1.5rem;"></div>
+      <div class="team-grid">
+        {% for member in team_members if member.role == 'associate' %}
+        <div class="team-card">
+          {% if member.photo %}
+          <img src="/static/images/{{ member.photo }}" alt="{{ member.name }}" class="team-card__photo-img">
+          {% else %}
+          <div class="team-card__photo" aria-hidden="true"></div>
+          {% endif %}
+          <div class="team-card__name">{{ member.name }}</div>
+          <div class="team-card__title">{{ member.title }}</div>
+          <div class="team-card__dept">{{ member.department }}</div>
+          <p class="team-card__bio">{{ member.bio }}</p>
+          {% if member.linkedin or member.phone or member.email %}
+          <div class="team-card__contact">
+            {% if member.linkedin %}<a href="{{ member.linkedin }}" class="team-card__contact-link" target="_blank" rel="noopener noreferrer"><span class="team-card__contact-icon">in</span> LinkedIn</a>{% endif %}
+            {% if member.email %}<a href="mailto:{{ member.email }}" class="team-card__contact-link"><span class="team-card__contact-icon">@</span> {{ member.email }}</a>{% endif %}
+            {% if member.phone %}<a href="tel:{{ member.phone }}" class="team-card__contact-link"><span class="team-card__contact-icon">&#9990;</span> {{ member.phone }}</a>{% endif %}
           </div>
           {% endif %}
         </div>

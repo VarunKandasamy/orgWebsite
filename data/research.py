@@ -48,36 +48,6 @@ LONGFORM_WORKS = [
         "type": "Full Report",
         "pages": 48,
     },
-    {
-        "id": 2,
-        "title": "Civic Engagement and Local Democracy in Oklahoma City",
-        "city": "Oklahoma City",
-        "state": "OK",
-        "date": "February 2026",
-        "description": "An in-depth examination of civic participation patterns in Oklahoma City, with ethnographic research and data analysis covering the past two decades of local political life.",
-        "type": "Full Report",
-        "pages": 52,
-    },
-    {
-        "id": 3,
-        "title": "Boston's Neighborhoods and the Politics of Participation",
-        "city": "Boston",
-        "state": "MA",
-        "date": "January 2026",
-        "description": "A longitudinal study of neighborhood-level civic engagement in Boston, exploring how community institutions shape political participation across diverse demographic groups.",
-        "type": "Full Report",
-        "pages": 61,
-    },
-    {
-        "id": 4,
-        "title": "Rebuilding Civic Trust in Atlanta: A Path Forward",
-        "city": "Atlanta",
-        "state": "GA",
-        "date": "November 2025",
-        "description": "A comprehensive report examining civic trust, institutional legitimacy, and pathways to increased local political participation in Atlanta and Fulton County.",
-        "type": "Full Report",
-        "pages": 44,
-    },
 ]
 
 CITIES = ["Trenton", "Oklahoma City", "Boston", "Atlanta"]
