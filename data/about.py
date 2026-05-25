@@ -37,7 +37,7 @@ TEAM_MEMBERS = [
         "title": "Director of Chapters & Outreach",
         "department": "Chapters Program",
         "role": "director",
-        "photo": "ben.PNG",
+        "photo": "ben2.PNG",
         "bio": "Ben Kelley is a Political Science sophomore at Seton Hall University. He cares about local institutions, the durability of civic life at the communal level, and the question of how ordinary people participate in the places where they live. He takes non-partisanship seriously.\n\nBen is Irish-American and Catholic, originally from Massachusetts, and is currently based in New Jersey. He plays piano, has an interest in housing policy, and is planning on attending law school after graduation.",
         "linkedin": None,
         "phone": None,
