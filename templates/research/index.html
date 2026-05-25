@@ -30,7 +30,7 @@
 
         <h2 class="section-title" style="font-size:1.5rem; margin-bottom:0.75rem;">Our Work</h2>
         <p class="section-body" style="margin-bottom:2rem;">
-          We currently operate in four different states: New Jersey, Oklahoma, Massachusetts, and Georgia. The Research Department serves as an innovative hub to analyze the histories and diverse political landscapes of the localities in which the organization operates. Our research informs internal strategy while generating suggestions on how we can evolve. Additionally, our research is shared with donors, sponsors, and government officials to create tangible change in local policies.
+          We currently operate in two states: New Jersey and Georgia. The Research Department serves as an innovative hub to analyze the histories and diverse political landscapes of the localities in which the organization operates. Our research informs internal strategy while generating suggestions on how we can evolve. Additionally, our research is shared with donors, sponsors, and government officials to create tangible change in local policies.
         </p>
 
         <h2 class="section-title" style="font-size:1.5rem; margin-bottom:0.75rem;">Our Vision</h2>
@@ -74,10 +74,11 @@
           <div class="card__body">
             <div class="card__category">{{ work.state }} &bull; {{ work.type }}</div>
             <h2 class="card__title">{{ work.title }}</h2>
+            {% if work.author %}<p style="font-size:0.8rem; color:var(--color-gold); font-weight:600; margin-bottom:0.5rem;">By {{ work.author }}</p>{% endif %}
             <p class="card__excerpt">{{ work.description }}</p>
             <div class="card__meta">
               <span class="card__date">{{ work.date }}</span>
-              <a href="#" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;">Read</a>
+              <a href="{{ work.url if work.url else '#' }}" class="btn btn-outline-gold" style="font-size:0.75rem; padding:0.35rem 1rem;"{% if work.url %} target="_blank" rel="noopener noreferrer"{% endif %}>Read</a>
             </div>
           </div>
         </article>
